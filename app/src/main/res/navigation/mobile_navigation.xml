@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.daniel.a160421076_uts.model.ui.home.HomeFragment"
+        android:name="com.daniel.a160421076_uts.view.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_navigation_home_to_navigation_history2"
             app:destination="@id/navigation_history" />
@@ -20,13 +20,13 @@
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.daniel.a160421076_uts.model.ui.history.HistoryFragment"
+        android:name="com.daniel.a160421076_uts.view.HistoryFragment"
         android:label="@string/title_history"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.daniel.a160421076_uts.model.ui.profile.ProfileFragment"
+        android:name="com.daniel.a160421076_uts.view.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

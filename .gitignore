@@ -1,4 +1,5 @@
 *.iml
+.gradle
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -13,3 +14,6 @@
 .cxx
 local.properties
 .idea/discord.xml
+.idea/kotlinc.xml
+.idea/render.experimental.xml
+.idea/kotlinc.xml
