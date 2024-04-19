@@ -38,16 +38,7 @@ class NewsAdapter (private val onItemClick: (Berita) -> Unit): RecyclerView.Adap
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val currentNews = newsList[position]
         Picasso.get().load(currentNews.gambar).into(holder.img)
-        Picasso.get().setLoggingEnabled(true)
-//        Picasso.get()
-//            .load( currentNews.gambar)
-//            .placeholder(R.drawable.round_person_24)
-//            .error(R.drawable.outline_history_24)
-//            .resize(200, 200)
-//            .into(holder.img)
-//        Glide.with(holder.itemView.context)
-//            .load(currentNews.gambar)
-//            .into(holder.img)
+//        Picasso.get().setLoggingEnabled(true)
         holder.txtTitle.text = currentNews.judul
         holder.txtUsername.text = "@" + currentNews.username
         holder.txtDeskripsi.text = currentNews.deskripsi

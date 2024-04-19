@@ -11,22 +11,13 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_navigation_home_to_navigation_history2"
-            app:destination="@id/navigation_history" />
-        <action
-            android:id="@+id/action_navigation_home_to_navigation_profile2"
-            app:destination="@id/navigation_profile" />
+            android:id="@+id/action_navigation_home_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/navigation_history"
-        android:name="com.daniel.a160421076_uts.view.HistoryFragment"
-        android:label="@string/title_history"
-        tools:layout="@layout/fragment_history" />
+        android:id="@+id/detailFragment"
+        android:name="com.daniel.a160421076_uts.view.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" />
 
-    <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.daniel.a160421076_uts.view.ProfileFragment"
-        android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
 </navigation>

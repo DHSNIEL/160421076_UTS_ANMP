@@ -17,3 +17,4 @@ local.properties
 .idea/kotlinc.xml
 .idea/render.experimental.xml
 .idea/kotlinc.xml
+*.log
