@@ -40,8 +40,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnReg.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
-
-
     }
     private fun CurrentLoggedUser(username: String){
         val sharedPreferences = getSharedPreferences("myPref", MODE_PRIVATE)

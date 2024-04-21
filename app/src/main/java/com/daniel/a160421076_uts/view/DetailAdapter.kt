@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.daniel.a160421076_uts.databinding.DetailItemBinding
 
-class DetailFragmentAdapter ( private val content: String) : RecyclerView.Adapter<DetailFragmentAdapter.ContentViewHolder>() {
+class DetailAdapter (private val content: String) : RecyclerView.Adapter<DetailAdapter.ContentViewHolder>() {
 
-    private val paragraphs: List<String> = content.split("\n")
+    private val paragraphs: List<String> = splitWords(content, 100)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -25,5 +25,28 @@ class DetailFragmentAdapter ( private val content: String) : RecyclerView.Adapte
         fun bind(content: String) {
             binding.txtContent.text = content
         }
+    }
+
+    private fun splitWords(content: String, wordsPerParagraph: Int): List<String> {
+        val words = content.split("\\s+".toRegex())
+        val paragraphs = mutableListOf<String>()
+        var currentParagraph = ""
+        var wordCount = 0
+
+        for (word in words) {
+            currentParagraph += "$word "
+            wordCount++
+            if (wordCount >= wordsPerParagraph) {
+                paragraphs.add(currentParagraph.trim())
+                currentParagraph = ""
+                wordCount = 0
+            }
+        }
+
+        if (currentParagraph.isNotEmpty()) {
+            paragraphs.add(currentParagraph.trim())
+        }
+
+        return paragraphs
     }
 }

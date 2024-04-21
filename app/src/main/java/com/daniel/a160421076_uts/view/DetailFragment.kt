@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso
 
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
-    private lateinit var adapter: DetailFragmentAdapter
+    private lateinit var adapter: DetailAdapter
     private var currentPage: Int = 0
 
     override fun onCreateView(
@@ -39,7 +39,7 @@ class DetailFragment : Fragment() {
             txtJudul.text = judulBerita
             txtUsername.text = "@$username"
 
-            adapter = DetailFragmentAdapter(kontenBerita?: "")
+            adapter = DetailAdapter(kontenBerita?: "")
             viewPager.adapter = adapter
         }
 
