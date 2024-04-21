@@ -2,7 +2,6 @@
     <string name="app_name">160421076_UTS</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_history">History</string>
     <string name="title_profile">Profile</string>
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

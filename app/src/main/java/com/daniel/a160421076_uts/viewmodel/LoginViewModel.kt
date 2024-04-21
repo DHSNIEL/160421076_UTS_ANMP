@@ -7,9 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.daniel.a160421076_uts.util.ApiClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class LoginViewModel : ViewModel(){
     private val _loginResult = MutableLiveData<Boolean>()

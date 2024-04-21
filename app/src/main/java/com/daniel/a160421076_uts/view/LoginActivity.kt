@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.daniel.a160421076_uts.R
 import com.daniel.a160421076_uts.databinding.ActivityLoginBinding
 import com.daniel.a160421076_uts.viewmodel.LoginViewModel
 
@@ -30,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginResult.observe(this, {result->
             if(result){
                 Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
+                CurrentLoggedUser(binding.txtUsernameLogin.editText?.text.toString())
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }else{
@@ -40,5 +40,13 @@ class LoginActivity : AppCompatActivity() {
         binding.btnReg.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+
+
+    }
+    private fun CurrentLoggedUser(username: String){
+        val sharedPreferences = getSharedPreferences("myPref", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("username", username)
+        editor.apply()
     }
 }

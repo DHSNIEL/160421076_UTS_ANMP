@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.daniel.a160421076_uts.R
 import com.daniel.a160421076_uts.databinding.ActivityRegisterBinding
 import com.daniel.a160421076_uts.viewmodel.RegisterViewModel
 

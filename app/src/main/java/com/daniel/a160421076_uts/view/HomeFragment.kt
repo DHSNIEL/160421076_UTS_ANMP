@@ -1,6 +1,5 @@
 package com.daniel.a160421076_uts.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +16,7 @@ import com.daniel.a160421076_uts.viewmodel.HomeViewModel
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var newsAdapter: NewsAdapter
+    private lateinit var homeAdapter: HomeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,15 +28,15 @@ class HomeFragment : Fragment() {
 
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        newsAdapter = NewsAdapter{onItemClick(it)}
+        homeAdapter = HomeAdapter{onItemClick(it)}
 
         binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = newsAdapter
+            adapter = homeAdapter
         }
 
         homeViewModel.getBeritaLiveData().observe(viewLifecycleOwner) { newsList ->
-            newsAdapter.updateNewsList(newsList)
+            homeAdapter.updateNewsList(newsList)
         }
 
         homeViewModel.refresh()
@@ -54,20 +53,6 @@ class HomeFragment : Fragment() {
         }
         findNavController().navigate(R.id.action_navigation_home_to_detailFragment, bundle)
     }
-//region old onItemClick
-//    private fun onItemClick(berita: Berita){
-//        val intent = Intent(requireContext(), DetailFragment::class.java).apply {
-//            putExtra("GAMBAR_BERITA", berita.gambar)
-//            putExtra("JUDUL_BERITA", berita.judul  )
-//            putExtra("USERNAME ",berita.username)
-//            putExtra("DESKRIPSI_BERITA ",berita.deskripsi)
-//            putExtra("KONTEN_BERITA", berita.konten)
-////            putStringArrayListExtra("KONTEN_BERITA", ArrayList<String>(berita.konten))
-//        }
-////        startActivity(intent)
-//        findNavController().navigate(R.id.action_navigation_home_to_detailFragment, bund)
-//    }
-//    endregion
 
     override fun onDestroyView() {
         super.onDestroyView()

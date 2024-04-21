@@ -3,7 +3,7 @@ package com.daniel.a160421076_uts.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.daniel.a160421076_uts.model.Berita
-import com.daniel.a160421076_uts.util.RemoteService
+import com.daniel.a160421076_uts.util.Service
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
@@ -18,7 +18,7 @@ class HomeViewModel : ViewModel() {
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    private val apiService = retrofit.create(RemoteService::class.java)
+    private val apiService = retrofit.create(Service::class.java)
 
     fun refresh() {
         val call = apiService.getBerita()
@@ -30,7 +30,6 @@ class HomeViewModel : ViewModel() {
                     beritaLD.value = emptyList()
                 }
             }
-
             override fun onFailure(call: Call<List<Berita>>, t: Throwable) {
                  beritaLD.value = emptyList()
             }
